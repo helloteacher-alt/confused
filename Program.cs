@@ -6,14 +6,16 @@ namespace confused
     {
         static void Main(string[] args)
         {
-            int password, cinuai, cisib, ciroi, fbsan, fbroi, fbmuean, nsanuai, nsasib, nsaroi, nsapun, nsamuean, nsasan, nsalan;
+            int password, cinuai, cisib, ciroi, fbsan, fbroi, fbmuean, nsanuai, nsasib, nsaroi, nsapun, nsamuean, nsasan;
             string orga;
-            Console.Write("Enter your Organization:");
+            Console.Write("Enter your organization:");
             orga = Console.ReadLine();
 
 
             Console.Write("Enter your password:");
             password = int.Parse(Console.ReadLine());
+
+
 
             if (orga == "CIA")
             {
@@ -27,18 +29,23 @@ namespace confused
                         ciroi = password / 1000;
                         if (ciroi % 10 == 6 || ciroi % 10 == 7)
                         {
-                            Console.WriteLine("Correct password");
+                            Console.WriteLine(true + ": Logged in");
                         }
                         else
-                            Console.WriteLine("Login failed");
+                            Console.WriteLine(false + ": Login failed");
+
                     }
                     else
-                        Console.WriteLine("Login failed");
+                        Console.WriteLine(false + ": Login failed");
+
                 }
                 else
-                    Console.WriteLine("Login failed");
+                    Console.WriteLine(false + ": Login failed");
+
             }
-            else Console.WriteLine("Login failed");
+
+
+
 
             if (orga == "FBI")
             {
@@ -55,14 +62,20 @@ namespace confused
                         fbmuean = fbmuean % 10;
                         if (fbmuean == 1 && fbmuean == 3 && fbmuean == 5 && fbmuean == 7 && fbmuean == 9)
                         {
-                            Console.WriteLine("Logged in");
+                            Console.WriteLine(true + ": Logged in");
                         }
+                        else
+                            Console.WriteLine(false + ": Login failed");
                     }
-                    else Console.WriteLine("Login failed");
+                    else
+                        Console.WriteLine(false + ": Login failed");
+
                 }
-                else Console.WriteLine("Login failed");
+                else
+                    Console.WriteLine(false + ": Login failed");
+
             }
-            else Console.WriteLine("Login failed");
+
 
             if (orga == "NSA")
             {
@@ -74,13 +87,34 @@ namespace confused
                     nsaroi = nsaroi % 10;
                     if (nsaroi == 3 || nsaroi == 9)
                     {
-                        nsasib = password
-                            nsapun =
-                            nsamuean =
-                            nsasan =
-                            nsalan =
+                        nsasib = password / 10;
+                        nsasib = nsasib % 10;
+
+                        nsapun = password / 1000;
+                        nsapun = nsapun % 10;
+
+                        nsamuean = password / 10000;
+                        nsamuean = nsamuean % 10;
+
+                        nsasan = password / 100000;
+                        nsasan = nsasan % 10;
+
+
+                        if (nsanuai == 7 || nsasib == 7 || nsaroi == 7 || nsapun == 7 || nsamuean == 7 || nsasan == 7)
+                        {
+                            Console.WriteLine(true + ": Logged in");
+                        }
+                        else
+                            Console.WriteLine(false + ": Login failed");
+
                     }
+                    else
+                        Console.WriteLine(false + ": Login failed");
+
                 }
+                else
+                    Console.WriteLine(false + ": Login failed");
+
             }
         }
 }
